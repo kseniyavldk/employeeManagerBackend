@@ -41,32 +41,6 @@ public class EmployeeResource {
         return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
     }
 
-
-
-   // @PostMapping("/delete/{id}")
-    //public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
-       // employeeService.deleteEmployee(id);
-       // return new ResponseEntity<>(HttpStatus.OK);
-    //}
-
-
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Employee> deleteEmployee (@PathVariable("id") Long id) {
-//        employeeService.deleteEmployee(id);
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
-
-
-//    @DeleteMapping("/delete")
-//    public ResponseEntity<Void> deleteEmployee( Long id) {
-//
-//        System.out.println("Hello world!");
-//
-//        employeeService.deleteEmployee(id: 2);
-//        return ResponseEntity.noContent().build();
-//    }
-
-
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
         employeeService.deleteEmployee(id);
