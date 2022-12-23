@@ -15,8 +15,9 @@ public class Cabinet implements Serializable {
 
     public Cabinet() {}
 
-    public Cabinet(Integer number) {
+    public Cabinet(Integer number, String cabinetCode) {
         this.number = number;
+        this.cabinetCode = cabinetCode;
     }
 
     public Long getId() {

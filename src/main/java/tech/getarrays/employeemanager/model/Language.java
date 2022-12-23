@@ -15,8 +15,9 @@ public class Language implements Serializable {
 
     public Language() {}
 
-    public Language(String name) {
+    public Language(String name, String languageCode) {
         this.name = name;
+        this.languageCode = languageCode;
     }
 
     public Long getId() {
