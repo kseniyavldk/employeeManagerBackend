@@ -3,6 +3,7 @@ package tech.getarrays.employeemanager.resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tech.getarrays.employeemanager.model.DropDown;
 import tech.getarrays.employeemanager.model.User;
 import tech.getarrays.employeemanager.service.UserService;
 
@@ -46,4 +47,12 @@ public class UserResource {
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
+    @GetMapping("/allTeachers")
+    public ResponseEntity<List<DropDown>> getAllTeachers () {
+        List<DropDown> user = userService.findAllTeachers();
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
 }

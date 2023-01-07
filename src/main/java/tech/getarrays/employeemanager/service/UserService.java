@@ -3,11 +3,13 @@ package tech.getarrays.employeemanager.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tech.getarrays.employeemanager.expection.UserNotFoundExpection;
+import tech.getarrays.employeemanager.model.DropDown;
 import tech.getarrays.employeemanager.model.User;
 import tech.getarrays.employeemanager.repo.UserRepo;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -39,5 +41,11 @@ public class UserService {
 
     public void deleteUser(Long id) {
         userRepo.deleteById(id);
+    }
+
+    public List<DropDown> findAllTeachers() {
+        return userRepo.findAll().stream().filter(x -> x.getRoleID() == 2)
+                .map(o -> new DropDown(o.getId(),o.getFullName()))
+                .collect(Collectors.toList());
     }
 }

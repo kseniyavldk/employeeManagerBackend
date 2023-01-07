@@ -95,4 +95,8 @@ public class User implements Serializable {
                 ", isHeadman='" + isHeadman + '\'' +
                 '}';
     }
+
+    public String getFullName() {
+        return name + lastname + patronymic;
+    }
 }
