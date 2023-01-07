@@ -48,7 +48,6 @@ public class UserResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
     @GetMapping("/allTeachers")
     public ResponseEntity<List<DropDown>> getAllTeachers () {
         List<DropDown> user = userService.findAllTeachers();

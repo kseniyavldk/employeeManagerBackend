@@ -3,6 +3,7 @@ package tech.getarrays.employeemanager.resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tech.getarrays.employeemanager.model.DropDown;
 import tech.getarrays.employeemanager.model.Role;
 import tech.getarrays.employeemanager.service.RoleService;
 
@@ -45,5 +46,11 @@ public class RoleResource {
     public ResponseEntity<?> deleteRoleById(@PathVariable("id") Long id) {
         roleService.deleteRole(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/allKeyValue")
+    public ResponseEntity<List<DropDown>> getAllRoles () {
+        List<DropDown> role = roleService.findAllKeyValueRoles();
+        return new ResponseEntity<>(role, HttpStatus.OK);
     }
 }
