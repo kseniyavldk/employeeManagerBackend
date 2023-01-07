@@ -3,11 +3,13 @@ package tech.getarrays.employeemanager.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tech.getarrays.employeemanager.expection.UserNotFoundExpection;
+import tech.getarrays.employeemanager.model.DropDown;
 import tech.getarrays.employeemanager.model.Language;
 import tech.getarrays.employeemanager.repo.LanguageRepo;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class LanguageService {
@@ -37,5 +39,11 @@ public class LanguageService {
     }
     public void deleteLanguageById(Long id){
         languageRepo.deleteById(id);
+    }
+
+    public List<DropDown> findAllLanguages() {
+        return languageRepo.findAll().stream()
+                .map(o -> new DropDown(o.getId(),o.getName()))
+                .collect(Collectors.toList());
     }
 }

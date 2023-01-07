@@ -3,6 +3,7 @@ package tech.getarrays.employeemanager.resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tech.getarrays.employeemanager.model.DropDown;
 import tech.getarrays.employeemanager.model.Language;
 import tech.getarrays.employeemanager.service.LanguageService;
 
@@ -45,5 +46,11 @@ public class LanguageResource {
     public ResponseEntity<?> deleteLanguage(@PathVariable("id") Long id) {
         languageService.deleteLanguageById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/allKeyValue")
+    public ResponseEntity<List<DropDown>> getAllLanguages () {
+        List<DropDown> user = languageService.findAllLanguages();
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

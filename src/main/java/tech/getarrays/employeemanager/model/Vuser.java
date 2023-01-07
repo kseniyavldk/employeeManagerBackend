@@ -4,28 +4,31 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "vgroup_info")
-public class VgroupInfo implements Serializable {
-
+@Table(name = "vuser")
+public class Vuser implements Serializable {
     @Id
     @Column(nullable = false, updatable = false)
     private Long id;
     private String name;
     private String lastname;
     private String patronymic;
-    private String language;
+    private String rolename;
+    private Boolean isHeadman;
     @Column(nullable = false, updatable = false)
-    private String GroupInfoCode;
+    private String userCode;
 
-    public VgroupInfo() {}
+    public Vuser() {}
 
-    public VgroupInfo(String name, String lastname, String patronymic, String language, String GroupInfoCode) {
+    public Vuser(Long id, String name, String lastname, String patronymic, String rolename, Boolean isHeadman, String userCode) {
+        this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.patronymic = patronymic;
-        this.language = language;
-        this.GroupInfoCode = GroupInfoCode;
+        this.rolename = rolename;
+        this.isHeadman = isHeadman;
+        this.userCode = userCode;
     }
+
 
     public Long getId() {
         return id;
@@ -39,7 +42,7 @@ public class VgroupInfo implements Serializable {
         return name;
     }
 
-    public void setName(String username) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -59,19 +62,27 @@ public class VgroupInfo implements Serializable {
         this.patronymic = patronymic;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getRolename() {
+        return rolename;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
     }
 
-    public String getGroupInfoCode() {
-        return GroupInfoCode;
+    public Boolean getHeadman() {
+        return isHeadman;
     }
 
-    public void setGroupInfoCode(String groupInfoCode) {
-        GroupInfoCode = groupInfoCode;
+    public void setHeadman(Boolean headman) {
+        isHeadman = headman;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 }
