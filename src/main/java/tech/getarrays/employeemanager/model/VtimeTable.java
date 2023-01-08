@@ -12,7 +12,7 @@ public class VtimeTable {
     private Long id;
     private Date data;
     private String groupname;
-
+    private Integer cabinet;
     private String fullname;
 
     @Column(nullable = false, updatable = false)
@@ -21,10 +21,11 @@ public class VtimeTable {
     public VtimeTable() {
     }
 
-    public VtimeTable(Long id, Date data, String groupname, String fullname, String timeTableCode) {
+    public VtimeTable(Long id, Date data, String groupname, Integer cabinet, String fullname, String timeTableCode) {
         this.id = id;
         this.data = data;
         this.groupname = groupname;
+        this.cabinet = cabinet;
         this.fullname = fullname;
         this.timeTableCode = timeTableCode;
     }
@@ -51,6 +52,14 @@ public class VtimeTable {
 
     public void setGroupname(String groupname) {
         this.groupname = groupname;
+    }
+
+    public Integer getCabinet() {
+        return cabinet;
+    }
+
+    public void setCabinet(Integer cabinet) {
+        this.cabinet = cabinet;
     }
 
     public String getFullname() {

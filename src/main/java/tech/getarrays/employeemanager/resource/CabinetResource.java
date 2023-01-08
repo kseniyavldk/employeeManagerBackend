@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.getarrays.employeemanager.model.Cabinet;
+import tech.getarrays.employeemanager.model.DropDown;
 import tech.getarrays.employeemanager.service.CabinetService;
 
 import java.util.List;
@@ -45,5 +46,11 @@ public class CabinetResource {
     public ResponseEntity<?> deleteCabinetById(@PathVariable("id") Long id) {
         cabinetService.deleteCabinet(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/allKeyValue")
+    public ResponseEntity<List<DropDown>> getAllCabinets () {
+        List<DropDown> cabinets = cabinetService.findAllKeyValueCabinets();
+        return new ResponseEntity<>(cabinets, HttpStatus.OK);
     }
 }

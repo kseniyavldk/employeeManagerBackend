@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tech.getarrays.employeemanager.expection.UserNotFoundExpection;
 import tech.getarrays.employeemanager.model.Cabinet;
+import tech.getarrays.employeemanager.model.DropDown;
 import tech.getarrays.employeemanager.repo.CabinetRepo;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class CabinetService {
@@ -38,5 +40,11 @@ public class CabinetService {
     }
     public void deleteCabinet(Long id){
         cabinetRepo.deleteById(id);
+    }
+
+    public List<DropDown> findAllKeyValueCabinets() {
+        return cabinetRepo.findAll().stream()
+                .map(o -> new DropDown(o.getId(),o.getNumber().toString()))
+                .collect(Collectors.toList());
     }
 }
