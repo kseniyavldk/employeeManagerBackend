@@ -13,18 +13,20 @@ public class Vuser implements Serializable {
     private String lastname;
     private String patronymic;
     private String rolename;
+    private String groupname;
     private Boolean isHeadman;
     @Column(nullable = false, updatable = false)
     private String userCode;
 
     public Vuser() {}
 
-    public Vuser(Long id, String name, String lastname, String patronymic, String rolename, Boolean isHeadman, String userCode) {
+    public Vuser(Long id, String name, String lastname, String patronymic, String rolename, String groupname, Boolean isHeadman, String userCode) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.patronymic = patronymic;
         this.rolename = rolename;
+        this.groupname = groupname;
         this.isHeadman = isHeadman;
         this.userCode = userCode;
     }
@@ -68,6 +70,14 @@ public class Vuser implements Serializable {
 
     public void setRolename(String rolename) {
         this.rolename = rolename;
+    }
+
+    public String getGroupname() {
+        return groupname;
+    }
+
+    public void setGroupname(String groupname) {
+        this.groupname = groupname;
     }
 
     public Boolean getHeadman() {

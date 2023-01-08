@@ -13,17 +13,19 @@ public class User implements Serializable {
     private String lastname;
     private String patronymic;
     private Integer roleID;
+    private Integer groupId;
     private Boolean isHeadman;
     @Column(nullable = false, updatable = false)
     private String userCode;
 
     public User() {}
 
-    public User(String name, String lastname, String patronymic, Integer roleID, Boolean isHeadman, String userCode) {
+    public User(String name, String lastname, String patronymic, Integer roleID, Integer groupId, Boolean isHeadman, String userCode) {
         this.name = name;
         this.lastname = lastname;
         this.patronymic = patronymic;
         this.roleID = roleID;
+        this.groupId = groupId;
         this.isHeadman = isHeadman;
         this.userCode = userCode;
     }
@@ -66,6 +68,14 @@ public class User implements Serializable {
 
     public void setRoleID(Integer roleID) {
         this.roleID = roleID;
+    }
+
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 
     public Boolean getIsHeadman() {
